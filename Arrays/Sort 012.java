@@ -22,24 +22,24 @@ public class Solution
         //     arr[i+c1+c0] = 2;        
 
         // Optimal
-        int low = 0;
-        int mid = 0;
+        int low = -1;
+        int mid = -1;
         int high = arr.length-1;
-        while(mid<=high)
+        while(mid+1<=high)
         {
-            if (arr[mid]==0)
+            if (arr[mid+1]==0)
             {
-                swap(arr,mid,low);
+                swap(arr,mid+1,low+1);
                 mid++;
                 low++;
             }
-            else if (arr[mid]==1)
+            else if (arr[mid+1]==1)
             {
                 mid++;
             }
             else
             {
-                swap(arr,mid,high);
+                swap(arr,mid+1,high);
                 high--;
             }
         }    
