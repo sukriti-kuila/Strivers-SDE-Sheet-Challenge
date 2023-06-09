@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Solution{
     public static int findDuplicate(ArrayList<Integer> arr, int n){
         // Write your code here.
-        // 10/11 test cases are passed
+        // 10/11 test cases are passed O(n^2)
         // int index = 0;
         // while(true)
         // {
