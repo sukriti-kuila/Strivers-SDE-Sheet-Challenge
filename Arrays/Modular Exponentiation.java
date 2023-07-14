@@ -32,24 +32,23 @@ public static int modularExponentiation(int a, int b, int n) {
     }
 
 // iterative way
-public double myPow(double x, int n) {
-        long nn = n;
-        if (n<0) nn *= -1;
-        double ans = 1.0;
-        while (nn>0)
+class Solution {
+    public double myPow(double a, int m) {
+        if (a==0) return 0;
+        if (m==0) return 1;
+        long n = m;
+        double ans = 1;
+        long b = n>=0?n:-n;
+        while (b>0)
         {
-            if (nn%2==0)
+            if ((b&1)==1)
             {
-                x *= x;
-                nn /= 2;
+                ans = ans*a;
             }
-            else
-            {
-                ans *= x;
-                nn -= 1;
-            }
+            a = a*a;
+            b >>= 1;
         }
-        System.out.println(ans);
-        return n>=0? ans: 1.0/ans;
+        return n>0?ans:(1.0/ans);
     }
+}
 
