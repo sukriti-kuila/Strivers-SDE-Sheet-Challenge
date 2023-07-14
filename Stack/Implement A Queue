@@ -1,0 +1,47 @@
+import java.util.* ;
+import java.io.*; 
+public class Queue {
+    int [] arr;
+    int front;
+    int rear;
+    Queue() {
+        // Implement the Constructor
+        arr = new int [50001];
+        front = -1;
+        rear =-1;
+    }
+
+    /*----------------- Public Functions of Queue -----------------*/
+
+    boolean isEmpty() {
+        // Implement the isEmpty() function
+        return (front==-1 || front>rear);
+    }
+
+    void enqueue(int data) {
+        if (rear==-1) 
+            front++;
+        rear++;
+        arr[rear] = data;    
+    }
+
+    int dequeue() {
+        if (front != -1 && front<=rear)
+        {
+            // System.out.println("Front "+front);
+            // System.out.println(Arrays.toString(arr));
+            int val = arr[front];
+            front++;
+            return val;
+        }
+        return -1;
+    }
+
+    int front() {
+        
+        if (front != -1 && front<=rear)
+            return arr[front];
+        return -1;    
+    }
+
+}
