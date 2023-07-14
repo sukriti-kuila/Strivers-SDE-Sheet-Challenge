@@ -1,17 +1,20 @@
-// code studio (constraints n>=1)
-import java.io.*;
-import java.util.*;
-public class Solution {
-    public static int modularExponentiation(int x, int n, int m) {
-        // Write your code here.        
-        if (n == 0) return 1;
-        long res = modularExponentiation(x, n / 2, m) % m;
-        res = (res * res) % m;
-        if (n % 2 == 1)
-            res = (res * x) % m;
-        return (int) res;
+// code studio (constraints n>=1) 
+// Luv method
+public static int modularExponentiation(int a, int b, int n) {
+    if (a == 0) {
+        return 0;
     }
+    int ans = 1;
+    while (b > 0) {
+        if ((b & 1) != 0) {
+            ans = (int) (((long) ans * a) % n);
+        }
+        a = (int) (((long) a * a) % n);
+        b = b >> 1;
+    }
+    return ans;
 }
+
 
 // leetcode pow(x,y) [constraint n can be negative also]
 // recursive method
